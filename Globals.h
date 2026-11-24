@@ -1,4 +1,3 @@
-
 #pragma once
 #include <Windows.h>
 #include <pdh.h>
@@ -15,4 +14,3 @@ namespace Server
 
 typedef PDH_HQUERY* (__fastcall* CProcessPerfCounter_t)(void* thisPtr);
 extern CProcessPerfCounter_t CProcessPerfCounter;
-
