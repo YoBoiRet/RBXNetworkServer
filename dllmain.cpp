@@ -5,8 +5,7 @@
 #include "Globals.h"
 #include <pdh.h>
 
-
-PDH_HQUERY* __fastcall CProcessPerfCounter_hook(void* thisPtr)
+PDH_HQUERY* __fastcall CProcessPerfCounter_hook(void* thisPtr) // makes the program startup quicker
 {
     static PDH_HQUERY d = nullptr;
     return &d;
