@@ -22,34 +22,8 @@ void InitConsole()
     ShowWindow(GetConsoleWindow(), SW_HIDE);
 }
 
-void enableTickets()
-{
-    CreateThread(nullptr, 0, [](LPVOID) -> DWORD {
-        char lastValue = *(char*)ticketsEnabled;
-
-        while (true)
-        {
-            char current = *(char*)ticketsEnabled;
-
-            if (current != lastValue)
-            {
-                printf("changed: %d -> %d\n", lastValue, current);
-                lastValue = current;
-            }
-
-            *(char*)ticketsEnabled = 1;
-            Sleep(1);
-        }
-
-        return 0;
-        }, nullptr, 0, nullptr);
-}
-
 void main()
 {
-    printf("enabled tickets\n");
-    enableTickets();
-
     DetourTransactionBegin();
     DetourUpdateThread(GetCurrentThread());
     DetourAttach(&(PVOID&)Server::start, NetworkServerstart_hook);
