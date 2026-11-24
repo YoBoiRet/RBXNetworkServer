@@ -2,5 +2,5 @@
 
 namespace RBXNetworkServer
 {
-    bool Debug = false;
+    bool Debug = true;
 }
